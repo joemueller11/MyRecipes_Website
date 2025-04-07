@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" >
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css" >
+    <title>New Recipe</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1>New Recipe</h1>
+      <nav>
+        <div class="nav-wrapper salmon">
+          <a href="#" class="brand-logo">🍳</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">My Recipes</a></li>
+            <li><a href="index.html#breakfast-section">Breakfast</a></li>
+            <li><a href="index.html#lunch-section">Lunch</a></li>
+            <li><a href="index.html#dinner-section">Dinner</a></li>
+            <li><a href="index.html#dessert-section">Dessert</a></li>
+          </ul>
+        </div>
+      </nav>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="index.html">My Recipes</a></li>
+        <li><a href="index.html#breakfast-section">Breakfast</a></li>
+        <li><a href="index.html#lunch-section">Lunch</a></li>
+        <li><a href="index.html#dinner-section">Dinner</a></li>
+        <li><a href="index.html#dessert-section">Dessert</a></li>
+      </ul>
+    </header>
+    <div class="recipe-form">
+      <div id="div-1">
+        <label for="recipe-title">Recipe Title:</label>
+        <input type="text" id="recipe-title" name="recipe-title" size="10" >
+        <label for="recipe-title">Serving Size:</label>
+        <input type="number" id="recipe-serving" name="recipe-serving" >
+        <label for="recipe-time">Cook Time (minutes):</label>
+        <input type="number" id="recipe-time" name="recipe-time" >
+        <form action="/action_page.php">
+          <label for="recipe-type">Recipe Type</label>
+          <input list="recipe-type" name="recipe-type">
+          <datalist id="recipe-type">
+            <option value="Breakfast">
+            <option value="Lunch">
+            <option value="Dinner">
+            <option value="Dessert">
+          </datalist>
+        </form>
+      </div>
+      <div id="div-2">
+        <label for="discription">Description</label>
+        <textarea id="discription" class="materialize-textarea" rows="4" required></textarea>
+      </div>
+      <div id="div-3">
+        <div class="container">
+          <h4 class="center-align">Ingredient Tracker</h4>
+          <div class="row">
+            <form id="ingredient-form" class="col s12">
+              <div class="input-field col s9">
+                <input type="text" id="ingredient-input" placeholder="Enter an ingredient" required>
+              </div>
+              <div class="input-field col s3">
+                <button class="btn waves-effect waves-light" type="submit">Add</button>
+              </div>
+            </form>
+          </div>
+          <ul id="ingredient-list" class="collection"></ul>
+        </div>
+      </div>
+      <div id="div-4">
+        <img class="responsive-img recipe-image-submit" id="recipe-image" src="https://cdn.pixabay.com/photo/2017/02/16/02/54/coming-soon-2070393_960_720.jpg" alt="Image will appear here">
+        <input type="text" id="imageUrl" placeholder="Paste image URL here">
+        <button id="save-image" type="submit" onclick="saveImageUrl()">Save image</button>
+      </div>
+      <div id="div-5">
+          <h4 class="center-align">Directions</h4>
+            <form id="directions-form">
+              <input type="text" id="directions-input" placeholder="Enter a direction" required>
+              <button class="btn waves-effect waves-light" type="submit" id="directions-submit" >Add</button>
+            </form>
+          <ol id="directions-list" class="collection"></ol>
+      </div>
+      <div id="div-6" class="input-field">
+        <form id="cooking-form" action="index.html" method="post">
+          <p id="error" class="red-text"></p>
+          <button type="submit" class="btn waves-effect waves-light">Submit</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal" id="errorModal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <p id="modalMessage">Error: Please add at least one ingredient and one direction.</p>
+        <button id="closeModalButton">Close</button>
+      </div>
+    </div>
+    <script src="./assets/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('.sidenav').sidenav();
+      });
+    </script>
+  </body>
+</html>
